@@ -32,6 +32,8 @@ namespace MassSpectrometer
             gfx = Graphics.FromImage(map);
             mainPictureBox.Image = map;
             mainTimer.Interval = 15;
+            voltageValueLabel.Text = voltageTrackBar.Value.ToString() + " V";
+            distanceValueLabel.Text = ((double)(distanceTrackBar.Value * .00005d)).ToString() + " m";
         }
 
         double secondsElapsedTime = 0;
@@ -45,12 +47,22 @@ namespace MassSpectrometer
         {
             positivePlate = new ChargePlate(new Point(100, 300), 88389513119, 40, 800, false);
             positivePlate.CenterHeight(mainPictureBox.Height);
-            negativePlate = new ChargePlate(new Point(800, 300), -88389513119, 40, 800, true);
+            negativePlate = new ChargePlate(new Point(positivePlate.Location.X + positivePlate.Width + distanceTrackBar.Value, 300), -88389513119, 40, 800, true);
             negativePlate.CenterHeight(mainPictureBox.Height);
-            system = new PlateSystem(positivePlate, negativePlate, 500);
+            system = new PlateSystem(positivePlate, negativePlate, voltageTrackBar.Value);
             helium = new Particle(2, 2, 1, system.StartPosition);
             mField = new MagneticField(negativePlate.Location.X + negativePlate.Width, 0, mainPictureBox.Width - negativePlate.Location.X - negativePlate.Width, mainPictureBox.Height, -1);
             mainTimer.Enabled = true;
+        }
+
+        private void voltageTrackBar_ValueChanged(object sender, EventArgs e)
+        {
+            voltageValueLabel.Text = voltageTrackBar.Value.ToString() + " V";
+        }
+
+        private void distanceTrackBar_Scroll(object sender, EventArgs e)
+        {
+            distanceValueLabel.Text = ((double)(distanceTrackBar.Value * .00005d)).ToString() + " m";
         }
 
         private void mainTimer_Tick(object sender, EventArgs e)

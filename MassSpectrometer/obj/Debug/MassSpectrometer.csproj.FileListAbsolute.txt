@@ -7,3 +7,12 @@ C:\Users\rene__000\Documents\School\CS546\MassSpectrometer\MassSpectrometer\obj\
 C:\Users\rene__000\Documents\School\CS546\MassSpectrometer\MassSpectrometer\obj\Debug\MassSpectrometer.csproj.GenerateResource.Cache
 C:\Users\rene__000\Documents\School\CS546\MassSpectrometer\MassSpectrometer\obj\Debug\MassSpectrometer.exe
 C:\Users\rene__000\Documents\School\CS546\MassSpectrometer\MassSpectrometer\obj\Debug\MassSpectrometer.pdb
+C:\Users\GMRInstructor\Documents\GitHub\MassSpectrometer\MassSpectrometer\bin\Debug\MassSpectrometer.exe.config
+C:\Users\GMRInstructor\Documents\GitHub\MassSpectrometer\MassSpectrometer\obj\Debug\MassSpectrometer.exe
+C:\Users\GMRInstructor\Documents\GitHub\MassSpectrometer\MassSpectrometer\obj\Debug\MassSpectrometer.pdb
+C:\Users\GMRInstructor\Documents\GitHub\MassSpectrometer\MassSpectrometer\bin\Debug\MassSpectrometer.exe
+C:\Users\GMRInstructor\Documents\GitHub\MassSpectrometer\MassSpectrometer\bin\Debug\MassSpectrometer.pdb
+C:\Users\GMRInstructor\Documents\GitHub\MassSpectrometer\MassSpectrometer\obj\Debug\MassSpectrometer.csprojResolveAssemblyReference.cache
+C:\Users\GMRInstructor\Documents\GitHub\MassSpectrometer\MassSpectrometer\obj\Debug\MassSpectrometer.Form1.resources
+C:\Users\GMRInstructor\Documents\GitHub\MassSpectrometer\MassSpectrometer\obj\Debug\MassSpectrometer.Properties.Resources.resources
+C:\Users\GMRInstructor\Documents\GitHub\MassSpectrometer\MassSpectrometer\obj\Debug\MassSpectrometer.csproj.GenerateResource.Cache
