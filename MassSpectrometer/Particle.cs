@@ -41,6 +41,7 @@ namespace MassSpectrometer
         public Point Location
         {
             get { return location; }
+            set { location = value; }
         }
 
         double velocityX;
@@ -114,8 +115,10 @@ namespace MassSpectrometer
         {
             if(!magneticContact)
             {
-                velocityX += ((double)accelerationX * 15 / 1000) / 100000000000;
-                velocityY += ((double)accelerationY * 15 / 1000) / 100000000000;
+                //Constant is a scaler required to slow down the simulation compared to what would happen in reality
+                //This means, this simulation runs at a rate of 1.5x10^(-13) seconds slower than reality
+                velocityX += ((double)accelerationX) * .00000000000015d;
+                velocityY += ((double)accelerationY) * .00000000000015d;
             }
             else
             {
@@ -158,11 +161,17 @@ namespace MassSpectrometer
 
         public void CalculateCirclePath(double magneticValue, double voltage)
         {
-            finalVelocity = Math.Sqrt((double)((2m * (decimal)voltage * charge) / mass));
+            //Calculate what the final velocity should be
+            finalVelocity = Math.Sqrt(Math.Abs((double)((2m * (decimal)voltage * charge) / mass)));
+            //Scale the velocity to fit our simulation
             finalScaleVelocity = finalVelocity / 15000;
-            radius = (double)((mass * (decimal)finalVelocity) / (Math.Abs(charge) * (decimal)magneticValue));
+            //run equation r = (m * v)/(q * B) to solve radius
+            radius = (double)((mass * (decimal)finalVelocity) / (charge * (decimal)magneticValue));
+            //figure out the length of half the circle
             double distanceToCover = 2 * Math.PI * Math.Abs(radius);
+            //solve ttime = (length of half the circle) / (scaled velocity)
             double timeToCover = distanceToCover / (finalScaleVelocity * .00005);
+            //how many degrees can we cover per stop in the alloted time
             degreeStep = (2 * Math.PI) / timeToCover;
             if(radius < 0)
             {
